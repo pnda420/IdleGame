@@ -13,6 +13,10 @@ export class CounterService {
         this.currentValue+=ammount;
         this.counterSubject.next(this.currentValue);
     }
+    decreaseCounter(ammount: number) {
+        this.currentValue -= ammount;
+        this.counterSubject.next(this.currentValue);
+    }
 
     getCurrentValue(): number {
         return this.currentValue;

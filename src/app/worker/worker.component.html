@@ -1,14 +1,26 @@
 <div class="tablecontainer">
-    <p-table [value]="worker" [scrollable]="true" scrollHeight="400px">
+    <p-table [value]="workers" [scrollable]="true" scrollHeight="400px">
+            <ng-template pTemplate="caption" >
+        <div class="headerContainer">
+            Worker
+            <p-button label="add {{getAddWorkerPrice()}}€" [outlined]="true" size="small" (onClick)="addWorker()" [disabled]="!canAffortBuyWorker()"></p-button>
+        </div>
+    </ng-template>
         <ng-template pTemplate="header">
             <tr>
                 <th>Name</th>
+                <th>Level</th>
+                <th>Work</th> 
+                <th>Upgrade</th>
 
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-product>
+        <ng-template pTemplate="body" let-worker>
             <tr>
-                <td>{{ product.name }}</td>
+                <td>{{ worker.name }}</td>
+                <td>{{worker.level}}</td>
+                <td>20€/Tick</td>
+                <td><p-button label="{{getPriceUpgrade(worker.level)}}" [outlined]="true" size="small" [disabled]="!canAffort(worker.level)" (onClick)="upgradeWorker(worker)"></p-button></td>
 
             </tr>
         </ng-template>

@@ -10,10 +10,10 @@ export class ClickAreaComponent {
 
   constructor(private counterService: CounterService) { }
 
- 
+  clickAmmount: number = 50;
 
   onButtonClick(): void {
-    this.counterService.increaseCounter(100);
+    this.counterService.increaseCounter(this.clickAmmount);
     
   }
 }

@@ -12,8 +12,7 @@ export class StatusbarComponent implements OnInit {
   counterValue: number = 0;
   workerEarn: number = 1;
 
-  moneyInterval: number = 10;
-  moneyDisplay: string = "";
+  moneyDisplay: string = "0000000";
   private subscription: Subscription;
 
   constructor(private counterService: CounterService) {
@@ -25,14 +24,13 @@ export class StatusbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    setInterval(() => {
-      this.counterService.increaseCounter(this.workerEarn);
-      this.updateMoneyDisplay();
-    }, this.moneyInterval);
+  
+    //this.counterService.increaseCounter(this.workerEarn);
+
   }
 
   updateMoneyDisplay() {
-    this.moneyDisplay = this.counterValue.toString().padStart(9, '0');
+    this.moneyDisplay = this.counterValue.toString().padStart(7, '0');
   }
 }
 
