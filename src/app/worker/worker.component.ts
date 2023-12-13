@@ -42,7 +42,7 @@ export class WorkerComponent implements OnInit {
   }
 
   getRandomName(): string {
-    const randomName = faker.name.findName();
+    const randomName = faker.name.firstName();
     return randomName;
   }
 

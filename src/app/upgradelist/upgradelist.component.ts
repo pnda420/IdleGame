@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../service/product.service';
+
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -8,17 +8,10 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./upgradelist.component.css']
 })
 export class UpgradelistComponent implements OnInit {
-  products = [];
-  subscription: Subscription;
+ion: Subscription;
 
-  constructor(private productService: ProductService) {
-    this.subscription = this.productService.products$.subscribe((value) => {
-      this.products = value;
-      console.log("PRODUCTS", value);
-    });
-  }
  ngOnInit(): void {
-  this.products = this.productService.getCurrentValue();
+
  }
 
 

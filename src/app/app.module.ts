@@ -8,6 +8,7 @@ import { WorkerComponent } from './worker/worker.component';
 import { UpgradelistComponent } from './upgradelist/upgradelist.component';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
+import { CardModule } from 'primeng/card';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { TableModule } from 'primeng/table';
     BrowserModule,
     ButtonModule,
     TableModule,
+    CardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
