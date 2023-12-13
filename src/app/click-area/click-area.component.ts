@@ -13,7 +13,7 @@ export class ClickAreaComponent {
  
 
   onButtonClick(): void {
-    this.counterService.increaseCounter(1);
+    this.counterService.increaseCounter(100);
     
   }
 }

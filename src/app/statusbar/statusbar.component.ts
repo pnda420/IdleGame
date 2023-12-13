@@ -10,9 +10,9 @@ import { CounterService } from '../service/counter.service';
 export class StatusbarComponent implements OnInit {
 
   counterValue: number = 0;
-  workerEarn: number = 2;
+  workerEarn: number = 1;
 
-  moneyInterval: number = 1000;
+  moneyInterval: number = 10;
   moneyDisplay: string = "";
   private subscription: Subscription;
 

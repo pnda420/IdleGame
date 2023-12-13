@@ -1,1 +1,16 @@
-<p>worker works!</p>
+<div class="tablecontainer">
+    <p-table [value]="worker" [scrollable]="true" scrollHeight="400px">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Name</th>
+
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+            <tr>
+                <td>{{ product.name }}</td>
+
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
