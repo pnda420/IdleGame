@@ -1,0 +1,22 @@
+<div class="tablecontainer">
+   <p-table [value]="products" [scrollable]="true" scrollHeight="400px">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Name</th>
+            <th>Level</th>
+            <th>Value</th>
+            <th>Cost</th>
+            <th>Action</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+        <tr>
+            <td>{{ product.name }}</td>
+            <td>{{ product.level }}</td>
+            <td>{{ product.value }}</td>
+            <td>{{ product.cost }} </td>
+            <td><p-button label="Buy"></p-button></td>
+        </tr>
+    </ng-template>
+</p-table> 
+</div>
