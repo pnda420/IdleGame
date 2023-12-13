@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CounterService } from '../service/counter.service';
+import * as faker from 'faker';
 
 
 interface Worker {
@@ -14,16 +15,35 @@ interface Worker {
 
 
 
-export class WorkerComponent {
+export class WorkerComponent implements OnInit {
   subscription: any;
   workers = []
   money: number;
+  totalMoneyPerTick: number;
+  moneyInterval: number = 1000;
 
   constructor(private counterService: CounterService) {
     this.subscription = this.counterService.counter$.subscribe((value) => {
       this.money = value;
     }
     );
+  }
+
+  ngOnInit(): void {
+    setInterval(() => {
+      let allLevels: number = 0;
+      for (let i = 0; i < this.workers.length; i++) {
+        allLevels += this.getWorkerTickValue(this.workers[i].level);
+      }
+
+      this.totalMoneyPerTick = allLevels
+      this.counterService.increaseCounter(this.totalMoneyPerTick);
+    }, this.moneyInterval);
+  }
+
+  getRandomName(): string {
+    const randomName = faker.name.findName();
+    return randomName;
   }
 
   //MONEY
@@ -39,14 +59,19 @@ export class WorkerComponent {
   addWorker() {
     this.counterService.decreaseCounter(this.getAddWorkerPrice())
     let worker: Worker = {
-      name: 'Worker#' + this.workers.length.toString(),
+      name: this.getRandomName(),
       level: 1
     }
     this.workers.push(worker);
   }
 
   getAddWorkerPrice() {
-    return (this.workers.length * 50) ** 2;
+    if(this.workers.length === 0) {
+      return 100
+    }else{
+      return (this.workers.length * 50) ** 2;
+    }
+
   }
 
   canAffortBuyWorker(): boolean {
@@ -61,6 +86,11 @@ export class WorkerComponent {
       level: worker.level + 1
     }
     this.workers[workerindex] = updatedWorker;
+  }
+
+
+  getWorkerTickValue(level: number): number {
+    return (level * 2) ** 2
   }
 
 }
