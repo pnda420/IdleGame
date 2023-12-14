@@ -20,7 +20,7 @@ export class WorkerComponent implements OnInit {
   workers = []
   money: number;
   totalMoneyPerTick: number;
-  moneyInterval: number = 1000;
+  moneyInterval: number = 10;
 
   constructor(private counterService: CounterService) {
     this.subscription = this.counterService.counter$.subscribe((value) => {

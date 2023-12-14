@@ -8,7 +8,8 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./upgradelist.component.css']
 })
 export class UpgradelistComponent implements OnInit {
-ion: Subscription;
+
+  intervalValue: number = 1000;
 
  ngOnInit(): void {
 

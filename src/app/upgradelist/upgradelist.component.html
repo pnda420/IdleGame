@@ -1,7 +1,12 @@
-<div class="card flex justify-content-center">
-    <p-card header="Interval Upgrade">
-        <p class="m-0 justify-content-center flex">
+<div>
+    <p-card header="Upgrades" class="card-container">
+        <div class="card-entry">
+            Work button force: <strong>50€</strong>
+            <p-button icon="pi pi-bolt" severity="success" label="100€"></p-button>
+        </div>
+        <div class="card-entry">
+            Current interval: <strong>{{intervalValue}}ms</strong>
             <p-button icon="pi pi-stopwatch" severity="warning" label="200€"></p-button>
-        </p>
+        </div>
     </p-card>
 </div>

@@ -9,6 +9,9 @@ import { UpgradelistComponent } from './upgradelist/upgradelist.component';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { CardModule } from 'primeng/card';
+import { MoneyProgressComponent } from './money-progress/money-progress.component';
+import { ProgressBarModule } from 'primeng/progressbar';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -16,13 +19,16 @@ import { CardModule } from 'primeng/card';
     ClickAreaComponent,
     StatusbarComponent,
     WorkerComponent,
-    UpgradelistComponent
+    UpgradelistComponent,
+    MoneyProgressComponent
   ],
   imports: [
     BrowserModule,
     ButtonModule,
     TableModule,
-    CardModule
+    CardModule,
+    ProgressBarModule,
+    ToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]
