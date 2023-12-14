@@ -20,7 +20,7 @@
                 <td>{{ worker.name }}</td>
                 <td>{{worker.level}}</td>
                 <td>{{getWorkerTickValue(worker.level)}}€/Tick</td>
-                <td><p-button label="{{getPriceUpgrade(worker.level)}}" [outlined]="true" size="small" [disabled]="!canAffort(worker.level)" (onClick)="upgradeWorker(worker)"></p-button></td>
+                <td><p-button label="{{getPriceUpgrade(worker.level)}}€" [outlined]="true" size="small" [disabled]="!canAffort(worker.level)" (onClick)="upgradeWorker(worker)"></p-button></td>
 
             </tr>
         </ng-template>

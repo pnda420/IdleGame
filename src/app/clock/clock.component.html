@@ -1,0 +1,5 @@
+<div>
+    <p>{{ formatTime() }}</p>
+    <button (click)="startTimer()" [disabled]="isRunning">Start</button>
+    <button (click)="stopTimer()" [disabled]="!isRunning">Stop</button>
+</div>

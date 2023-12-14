@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CounterService } from '../service/counter.service';
+import { UpgradeService } from '../service/upgrade.service';
 import * as faker from 'faker';
 
 
@@ -17,14 +18,19 @@ interface Worker {
 
 export class WorkerComponent implements OnInit {
   subscription: any;
-  workers = []
+  workers = [];
   money: number;
   totalMoneyPerTick: number;
-  moneyInterval: number = 10;
+  moneyInterval: number;
+  subscription1: any;
 
-  constructor(private counterService: CounterService) {
+  constructor(private counterService: CounterService, private updateService: UpgradeService) {
     this.subscription = this.counterService.counter$.subscribe((value) => {
       this.money = value;
+    }
+    );
+    this.subscription1 = this.updateService.interval$.subscribe((value) => {
+      this.moneyInterval = value;
     }
     );
   }

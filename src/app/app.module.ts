@@ -12,6 +12,7 @@ import { CardModule } from 'primeng/card';
 import { MoneyProgressComponent } from './money-progress/money-progress.component';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { ToastModule } from 'primeng/toast';
+import { ClockComponent } from './clock/clock.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ToastModule } from 'primeng/toast';
     StatusbarComponent,
     WorkerComponent,
     UpgradelistComponent,
-    MoneyProgressComponent
+    MoneyProgressComponent,
+    ClockComponent
   ],
   imports: [
     BrowserModule,
