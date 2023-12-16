@@ -10,7 +10,7 @@ import { CounterService } from '../service/counter.service';
 export class UpgradelistComponent implements OnInit {
 
   intervalValue: number = 1000;
-  buttonValue: number = 100;
+  buttonValue: number = 10000000;
 
   buttonPrice: number = 100;
   intervalPrice: number = 100;
@@ -32,7 +32,7 @@ export class UpgradelistComponent implements OnInit {
 
   buyButton(): void {
     if (this.canAffort("button")) {
-      this.buttonValue += 100;
+      this.buttonValue += Math.round(this.buttonValue * 1.5);
       this.upgradeService.setButtonValue(this.buttonValue);
       this.counterService.decreaseCounter(this.buttonPrice);
       this.buttonPrice = Math.round(this.buttonPrice * 2);
@@ -41,10 +41,10 @@ export class UpgradelistComponent implements OnInit {
 
   buyInterval(): void {
     if (this.canAffort("interval")) {
-      this.intervalValue -= 100;
+      this.intervalValue -= 50;
       this.upgradeService.setInterval(this.intervalValue);
       this.counterService.decreaseCounter(this.intervalPrice);
-      this.intervalPrice = Math.round(this.intervalPrice * 2.5);
+      this.intervalPrice = Math.round(this.intervalPrice * 1.68);
     }
   }
 
@@ -57,7 +57,7 @@ export class UpgradelistComponent implements OnInit {
       }
     }
     else if (type == "interval") {
-      if (this.playerMoney >= this.intervalPrice) {
+      if (this.playerMoney >= this.intervalPrice && this.intervalValue > 100) {
         canAffort = true
       }
     }

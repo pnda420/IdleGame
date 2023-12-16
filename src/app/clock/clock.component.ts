@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-clock',
   templateUrl: './clock.component.html',
   styleUrls: ['./clock.component.css']
 })
-export class ClockComponent {
+export class ClockComponent implements OnInit {
+  ngOnInit(): void {
+    this.startTimer()
+  }
   private intervalId: any;
   private milliseconds: number = 0;
   private seconds: number = 0;

@@ -8,3 +8,7 @@
     src: url('./assets/fonts/base.ttf') format('truetype');
 }
 
+
+.disable-selection {
+    user-select: none;
+  }

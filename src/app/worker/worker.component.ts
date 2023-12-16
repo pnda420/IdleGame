@@ -16,6 +16,7 @@ interface Worker {
 export class WorkerComponent implements OnInit {
   subscription: any;
   workers = [];
+  maxWorker: number = 5;
   money: number;
   totalMoneyPerTick: number;
   moneyInterval: number = 1000;
@@ -51,6 +52,13 @@ export class WorkerComponent implements OnInit {
     }, this.moneyInterval);
   }
 
+  getWorkerBuyLabel() {
+    if (this.workers.length >= this.maxWorker) {
+      return "max. Workers"
+    } else {
+      return "add " + this.getAddWorkerPrice() + "€"
+    }
+  }
 
   changeMoneyInterval(newInterval: number): void {
     this.moneyInterval = newInterval;
@@ -90,7 +98,13 @@ export class WorkerComponent implements OnInit {
   }
 
   canAffortBuyWorker(): boolean {
-    return this.money >= this.getAddWorkerPrice();;
+    let canAffort;
+    if(this.money >= this.getAddWorkerPrice() && this.workers.length < this.maxWorker){
+      canAffort = true;
+    }else{
+      canAffort = false;
+    }
+    return canAffort
   }
 
   upgradeWorker(worker: Worker) {

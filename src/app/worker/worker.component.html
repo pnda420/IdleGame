@@ -2,8 +2,9 @@
     <p-table [value]="workers" [scrollable]="true" scrollHeight="400px">
             <ng-template pTemplate="caption" >
         <div class="headerContainer">
-            Worker ({{totalMoneyPerTick}}€/{{moneyInterval}}ms)
-            <p-button label="add {{getAddWorkerPrice()}}€" [outlined]="true" size="small" (onClick)="addWorker()" [disabled]="!canAffortBuyWorker()"></p-button>
+            <img src="../../assets/images/worker.png" style="width: 40px;">
+            Worker ({{totalMoneyPerTick}}€/{{moneyInterval}}ms) ({{workers.length}}/5)
+            <p-button label={{getWorkerBuyLabel()}} [outlined]="true" size="small" (onClick)="addWorker()" [disabled]="!canAffortBuyWorker()"></p-button>
         </div>
     </ng-template>
         <ng-template pTemplate="header">
