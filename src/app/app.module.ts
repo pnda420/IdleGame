@@ -18,6 +18,8 @@ import { GamebarComponent } from './gamebar/gamebar.component';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { FormsModule } from '@angular/forms';
 import { ToolbarModule } from 'primeng/toolbar';
+import { MoneyGoalsComponent } from './money-goals/money-goals.component';
+import { BankComponent } from './bank/bank.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { ToolbarModule } from 'primeng/toolbar';
     UpgradelistComponent,
     MoneyProgressComponent,
     ClockComponent,
-    GamebarComponent
+    GamebarComponent,
+    MoneyGoalsComponent,
+    BankComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,31 @@
+<div>
+    <p-card class="card-container">
+        <div class="font" style="display: flex;">
+            <img src="../../assets/images/bank.png" alt="Bildbeschreibung">
+            <div style='margin-top: 15px'>
+                Bank
+            </div>
+        </div>
+        <div class="moneyText" style="margin-top: 10px;">{{bankMoney}}</div>
+        <div class="courseText" style="margin-top: 10px;">
+            Current course:
+            <div  [style.color]="coursePositive ? '#22C55E' : '#EF4444'">
+                {{ course }}%
+            </div>
+            <i *ngIf="coursePositive" class="pi pi-angle-double-up" style="color: #22C55E;"></i>
+            <i *ngIf="!coursePositive" class="pi pi-angle-double-down" style="color: #EF4444;"></i>
+        </div>
+        <div class="border">
+            <div class="moneyText" style="font-size: 30px; margin-top: 10px;">{{depositMoney}}</div>
+            <div class="button-container" style="margin-top: 10px;">
+                <p-button label="-" severity="danger" (click)="subMoney()"></p-button>
+                <p-button label="Deposit" (click)="deposit()" [disabled]="!canAffortDeposit()"></p-button>             
+                <p-button label="+" severity="success" (click)="addMoney()"></p-button>
+            </div>
+            <div style="display: flex; justify-content: center; margin-top: 10px; margin-bottom: 10px;">
+                <p-button label="Withdraw" (click)="withdraw()"></p-button>
+            </div>
+        </div>
+     
+    </p-card>
+</div>

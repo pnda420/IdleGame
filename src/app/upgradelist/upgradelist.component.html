@@ -1,5 +1,9 @@
 <div>
-    <p-card header="Upgrades" class="card-container">
+    <p-card class="card-container">
+        <div class="text" >
+            <img src="../../assets/images/upgrade.png" alt="Bildbeschreibung" style="width: 40px; margin-right: 5px;">
+            Upgrades
+        </div>
         <div class="card-entry">
             Work button force: <strong>{{buttonValue}}€</strong>
             <p-button icon="pi pi-bolt" severity="success" label="{{buttonPrice}}€" (onClick)="buyButton()"
@@ -8,6 +12,11 @@
         <div class="card-entry">
             Current interval: <strong>{{intervalValue}}ms</strong>
             <p-button icon="pi pi-stopwatch" severity="warning" label="{{intervalPrice}}€" (onClick)="buyInterval()"
+                [disabled]="!canAffort('interval')"></p-button>
+        </div>
+        <div class="card-entry">
+            Max Workers: <strong>{{maxWorkers}}</strong>
+            <p-button icon="pi pi-user" severity="help" label="{{buyMaxWorkerPrice}}€" (onClick)="buyInterval()"
                 [disabled]="!canAffort('interval')"></p-button>
         </div>
     </p-card>

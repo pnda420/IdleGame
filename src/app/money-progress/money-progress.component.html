@@ -1,6 +1,10 @@
 <div style="width: 700px; justify-content: center;">
     <div class="text">
-        Money Progress
+        Money Progress 1 Milion GOAL
     </div>
-    <p-progressBar [value]="counterValue"></p-progressBar>
+    <div class="progressbar-container">
+        <div class="progressbar" [style.width.%]="counterValue">
+            <span>{{ counterValue }}%</span>
+        </div>
+    </div>
 </div>

@@ -10,17 +10,20 @@ import { CounterService } from '../service/counter.service';
 export class UpgradelistComponent implements OnInit {
 
   intervalValue: number = 1000;
-  buttonValue: number = 10000000;
+  buttonValue: number = 10000;
 
   buttonPrice: number = 100;
   intervalPrice: number = 100;
   subscription: any;
 
-  playerMoney: number;
+  maxWorkers: number = 5;
+  buyMaxWorkerPrice: number = 100;
+
+  currentMoney: number;
 
   constructor(private upgradeService: UpgradeService, private counterService: CounterService) {
     this.subscription = this.counterService.counter$.subscribe((value) => {
-      this.playerMoney = value;
+      this.currentMoney = value;
     }
     );
   };
@@ -28,6 +31,7 @@ export class UpgradelistComponent implements OnInit {
   ngOnInit(): void {
     this.upgradeService.setInterval(this.intervalValue);
     this.upgradeService.setButtonValue(this.buttonValue);
+    this.upgradeService.setMaxWorker(this.maxWorkers);
   }
 
   buyButton(): void {
@@ -52,12 +56,12 @@ export class UpgradelistComponent implements OnInit {
     let canAffort;
 
     if (type == "button") {
-      if (this.playerMoney >= this.buttonPrice) {
+      if (this.currentMoney >= this.buttonPrice) {
         canAffort = true
       }
     }
     else if (type == "interval") {
-      if (this.playerMoney >= this.intervalPrice && this.intervalValue > 100) {
+      if (this.currentMoney >= this.intervalPrice && this.intervalValue > 100) {
         canAffort = true
       }
     }

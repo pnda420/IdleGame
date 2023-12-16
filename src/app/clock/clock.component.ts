@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TimeService } from '../service/time.service';
 
 @Component({
   selector: 'app-clock',
@@ -6,15 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./clock.component.css']
 })
 export class ClockComponent implements OnInit {
-  ngOnInit(): void {
-    this.startTimer()
-  }
+  subscription: any;
+
+  
   private intervalId: any;
   private milliseconds: number = 0;
   private seconds: number = 0;
   private minutes: number = 0;
   public isRunning: boolean = false;
+  
+  constructor(private TimeService: TimeService) {}
 
+  ngOnInit(): void {
+    this.startTimer()
+  }
+  
   startTimer(): void {
     if (!this.isRunning) {
       this.isRunning = true;
@@ -28,7 +35,9 @@ export class ClockComponent implements OnInit {
           this.seconds = 0;
           this.minutes++;
         }
+        this.TimeService.setCurrentTime(this.formatTime());
       }, 10);
+    
     }
   }
 
@@ -47,7 +56,8 @@ export class ClockComponent implements OnInit {
   }
 
   formatTime(): string {
-    return `${this.formatTimeComponent(this.minutes)}:${this.formatTimeComponent(this.seconds)}:${this.formatTimeComponent(Math.floor(this.milliseconds / 100))}`;
+    let time = `${this.formatTimeComponent(this.minutes)}:${this.formatTimeComponent(this.seconds)}:${this.formatTimeComponent(Math.floor(this.milliseconds / 100))}`
+    return time;
   }
 
   private formatTimeComponent(value: number): string {

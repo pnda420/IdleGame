@@ -16,11 +16,12 @@ interface Worker {
 export class WorkerComponent implements OnInit {
   subscription: any;
   workers = [];
-  maxWorker: number = 5;
+  maxWorker: number;
   money: number;
   totalMoneyPerTick: number;
   moneyInterval: number = 1000;
   subscription1: any;
+  subscription2: any;
 
   constructor(private counterService: CounterService, private updateService: UpgradeService) {
     this.subscription = this.counterService.counter$.subscribe((value) => {
@@ -31,6 +32,11 @@ export class WorkerComponent implements OnInit {
       this.moneyInterval = value
     }
     );
+    this.subscription2 = this.updateService.maxWorker$.subscribe((value) => {
+      this.maxWorker = value
+    }
+    );
+    
   }
 
   ngOnInit() {

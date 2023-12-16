@@ -1,0 +1,31 @@
+<div>
+    <p-card class="card-container">
+        <div class="text" style="display: flex;">
+            <img src="../../assets/images/moneyGoal.png" alt="Bildbeschreibung">
+            <div style='margin-top: 15px'>
+                Bank
+            </div>
+        </div>
+        <div class="card-entry">
+            <img *ngIf="hasTime1k" src="../../assets/images/check.png" alt="Bildbeschreibung">
+            <img *ngIf="!hasTime1k" src="../../assets/images/cross.png" alt="Bildbeschreibung">
+            1000 {{goalTime1k}}
+        </div>
+        
+        <div class="card-entry">
+            <img *ngIf="hasTime100k" src="../../assets/images/check.png" alt="Bildbeschreibung">
+            <img *ngIf="!hasTime100k" src="../../assets/images/cross.png" alt="Bildbeschreibung">
+            100.000 {{goalTime100k}}
+        </div>
+        <div class="card-entry">
+            <img *ngIf="hasTime1m" src="../../assets/images/check.png" alt="Bildbeschreibung">
+            <img *ngIf="!hasTime1m" src="../../assets/images/cross.png" alt="Bildbeschreibung">
+            1.000.000 {{goalTime1m}}
+        </div>
+        <div class="card-entry">
+            <img *ngIf="hasTime100m" src="../../assets/images/check.png" alt="Bildbeschreibung">
+            <img *ngIf="!hasTime100m" src="../../assets/images/cross.png" alt="Bildbeschreibung">
+            100.000.000 {{goalTime100m}}
+        </div>
+    </p-card>
+</div>

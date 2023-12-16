@@ -2,7 +2,10 @@
     width: 500px;
     border: 3px solid #000;
 }
-
+ img{
+    margin-right: 10px;
+    width: 40px;
+ }
 
 .card-container {
     display: flex;
@@ -23,11 +26,13 @@
 .card-entry {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin-top: 10px;
     border: #c7c7c7 3px solid;
     border-radius: 15px;
     padding: 5px;
+    font-family: 'basic', sans-serif;
+    font-size: 25px;
     color: #000;
 }
 

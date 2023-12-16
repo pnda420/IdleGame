@@ -3,5 +3,8 @@
     display: flex;
     justify-content: center;
     font-size: 35px;
+    font-family: 'basic', sans-serif;
+    font-size: 40px;
+    color: #000;
 }
 
