@@ -13,6 +13,11 @@ import { MoneyProgressComponent } from './money-progress/money-progress.componen
 import { ProgressBarModule } from 'primeng/progressbar';
 import { ToastModule } from 'primeng/toast';
 import { ClockComponent } from './clock/clock.component';
+import { DialogModule } from 'primeng/dialog';
+import { GamebarComponent } from './gamebar/gamebar.component';
+import { ToggleButtonModule } from 'primeng/togglebutton';
+import { FormsModule } from '@angular/forms';
+import { ToolbarModule } from 'primeng/toolbar';
 
 @NgModule({
   declarations: [
@@ -22,7 +27,8 @@ import { ClockComponent } from './clock/clock.component';
     WorkerComponent,
     UpgradelistComponent,
     MoneyProgressComponent,
-    ClockComponent
+    ClockComponent,
+    GamebarComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +36,11 @@ import { ClockComponent } from './clock/clock.component';
     TableModule,
     CardModule,
     ProgressBarModule,
-    ToastModule
+    ToastModule,
+    DialogModule,
+    ToggleButtonModule,
+    FormsModule,
+    ToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

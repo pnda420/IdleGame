@@ -12,7 +12,7 @@ export class UpgradeService {
     interval$ = this.intervalSubject.asObservable();
     buttonValue$ = this.buttonValueSubject.asObservable();
 
-    private interval = 500;
+    private interval = 1000;
     private buttonValue = 0;
 
     setInterval(ammount: number) {

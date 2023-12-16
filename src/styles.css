@@ -1,6 +1,10 @@
 @font-face {
     font-family: 'segment';
     src: url('./assets/fonts/segment.woff') format('woff');
+}
 
+@font-face {
+    font-family: 'basic';
+    src: url('./assets/fonts/base.ttf') format('truetype');
 }
 

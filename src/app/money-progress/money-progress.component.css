@@ -1,0 +1,5 @@
+.text{
+    justify-content: center; 
+    display: flex;  
+    font-family: 'basic', sans-serif;
+}

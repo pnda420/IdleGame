@@ -1,5 +1,13 @@
-<div>
-    <p>{{ formatTime() }}</p>
-    <button (click)="startTimer()" [disabled]="isRunning">Start</button>
-    <button (click)="stopTimer()" [disabled]="!isRunning">Stop</button>
-</div>
+<p-toolbar>
+    <div class="p-toolbar-group-start">
+        <button pButton pRipple label="Start" class="p-button-success" (click)="startTimer()" [disabled]="isRunning" ></button>
+    </div>
+    <div class="p-toolbar-group-center">
+        <div class="container">
+            {{formatTime()}}
+        </div>        
+    </div>
+    <div class="p-toolbar-group-end">
+        <button pButton pRipple label="Pause" class="p-button-danger" style="margin-left: 5px;" (click)="pauseTimer()" [disabled]="!isRunning"></button>
+    </div>
+</p-toolbar>

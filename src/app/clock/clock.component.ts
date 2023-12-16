@@ -12,10 +12,6 @@ export class ClockComponent {
   private minutes: number = 0;
   public isRunning: boolean = false;
 
-  ngOnDestroy(): void {
-    this.stopTimer();
-  }
-
   startTimer(): void {
     if (!this.isRunning) {
       this.isRunning = true;
@@ -37,9 +33,13 @@ export class ClockComponent {
     if (this.isRunning) {
       clearInterval(this.intervalId);
       this.isRunning = false;
-      this.milliseconds = 0;
-      this.seconds = 0;
-      this.minutes = 0;
+    }
+  }
+
+  pauseTimer(): void {
+    if (this.isRunning) {
+      clearInterval(this.intervalId);
+      this.isRunning = false;
     }
   }
 

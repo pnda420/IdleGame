@@ -3,7 +3,6 @@ import { CounterService } from '../service/counter.service';
 import { UpgradeService } from '../service/upgrade.service';
 import * as faker from 'faker';
 
-
 interface Worker {
   name: string;
   level: number;
@@ -14,14 +13,12 @@ interface Worker {
   styleUrls: ['./worker.component.css']
 })
 
-
-
 export class WorkerComponent implements OnInit {
   subscription: any;
   workers = [];
   money: number;
   totalMoneyPerTick: number;
-  moneyInterval: number;
+  moneyInterval: number = 1000;
   subscription1: any;
 
   constructor(private counterService: CounterService, private updateService: UpgradeService) {
@@ -30,21 +27,33 @@ export class WorkerComponent implements OnInit {
     }
     );
     this.subscription1 = this.updateService.interval$.subscribe((value) => {
-      this.moneyInterval = value;
+      this.moneyInterval = value
     }
     );
   }
 
-  ngOnInit(): void {
-    setInterval(() => {
-      let allLevels: number = 0;
-      for (let i = 0; i < this.workers.length; i++) {
-        allLevels += this.getWorkerTickValue(this.workers[i].level);
-      }
+  ngOnInit() {
+    this.updateMoney();
+  }
 
-      this.totalMoneyPerTick = allLevels
-      this.counterService.increaseCounter(this.totalMoneyPerTick);
+  updateMoney(): void {
+    let allLevels: number = 0;
+
+    for (let i = 0; i < this.workers.length; i++) {
+      allLevels += this.getWorkerTickValue(this.workers[i].level);
+    }
+
+    this.totalMoneyPerTick = allLevels;
+    this.counterService.increaseCounter(this.totalMoneyPerTick);
+
+    setTimeout(() => {
+      this.updateMoney();
     }, this.moneyInterval);
+  }
+
+
+  changeMoneyInterval(newInterval: number): void {
+    this.moneyInterval = newInterval;
   }
 
   getRandomName(): string {
@@ -72,9 +81,9 @@ export class WorkerComponent implements OnInit {
   }
 
   getAddWorkerPrice() {
-    if(this.workers.length === 0) {
+    if (this.workers.length === 0) {
       return 100
-    }else{
+    } else {
       return (this.workers.length * 50) ** 2;
     }
 

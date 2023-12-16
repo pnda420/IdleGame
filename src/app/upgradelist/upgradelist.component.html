@@ -2,11 +2,13 @@
     <p-card header="Upgrades" class="card-container">
         <div class="card-entry">
             Work button force: <strong>{{buttonValue}}€</strong>
-            <p-button icon="pi pi-bolt" severity="success" label="100€" (onClick)="buyButton()"></p-button>
+            <p-button icon="pi pi-bolt" severity="success" label="{{buttonPrice}}€" (onClick)="buyButton()"
+                [disabled]="!canAffort('button')"></p-button>
         </div>
         <div class="card-entry">
             Current interval: <strong>{{intervalValue}}ms</strong>
-            <p-button icon="pi pi-stopwatch" severity="warning" label="200€" (onClick)="buyInterval()"></p-button>
+            <p-button icon="pi pi-stopwatch" severity="warning" label="{{intervalPrice}}€" (onClick)="buyInterval()"
+                [disabled]="!canAffort('interval')"></p-button>
         </div>
     </p-card>
 </div>
