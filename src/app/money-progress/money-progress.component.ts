@@ -17,8 +17,10 @@ export class MoneyProgressComponent {
     );
   }
 
-  berechneProzentsatz(wert: number){
-    this.counterValue = Math.round((wert / 1000000) * 100);
-  }
+  berechneProzentsatz(wert: number) {
+    let value: number = parseFloat((wert / 100000000 * 100).toFixed(2));
+    this.counterValue = value;
+}
+
   
 }

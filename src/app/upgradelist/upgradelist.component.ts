@@ -10,7 +10,7 @@ import { CounterService } from '../service/counter.service';
 export class UpgradelistComponent implements OnInit {
 
   intervalValue: number = 1000;
-  buttonValue: number = 50;
+  buttonValue: number = 50000;
 
   buttonPrice: number = 100;
   intervalPrice: number = 100;
