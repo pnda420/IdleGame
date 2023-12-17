@@ -19,6 +19,11 @@ export class UpgradelistComponent implements OnInit {
   maxWorkers: number = 3;
   buyMaxWorkerPrice: number = 100;
 
+  unlockWorkerPrice: number = 100000;
+  unlockWorker: boolean = false;
+  unlockBankPrice: number = 300000;
+  unlockBank: boolean = false;
+
   currentMoney: number;
 
   constructor(private upgradeService: UpgradeService, private counterService: CounterService) {
@@ -32,6 +37,20 @@ export class UpgradelistComponent implements OnInit {
     this.upgradeService.setInterval(this.intervalValue);
     this.upgradeService.setButtonValue(this.buttonValue);
     this.upgradeService.setMaxWorker(this.maxWorkers);
+  }
+
+  buyUnlockWorker(){
+    if(this.canAffort("unlockWorker")){
+      this.unlockWorker = true
+      this.upgradeService.setUnlockWorkers(this.unlockWorker);
+    }
+  }
+
+  buyUnlockBank(){
+    if(this.canAffort("unlockBank")){
+      this.unlockBank = true
+      this.upgradeService.setUnlockBank(this.unlockBank);
+    }
   }
 
   buyButton(): void {
@@ -76,6 +95,16 @@ export class UpgradelistComponent implements OnInit {
     }
     else if (type == "maxWorker") {
       if (this.currentMoney >= this.buyMaxWorkerPrice) {
+        canAffort = true
+      }
+    }
+    else if (type == "unlockBank") {
+      if (this.currentMoney >= this.unlockWorkerPrice) {
+        canAffort = true
+      }
+    }
+    else if (type == "unlockWorker") {
+      if (this.currentMoney >= this.unlockWorkerPrice) {
         canAffort = true
       }
     }

@@ -64,7 +64,7 @@ export class WorkerComponent implements OnInit {
     if (this.workers.length >= this.maxWorker) {
       return "max. Workers"
     } else {
-      return "add " + this.getAddWorkerPrice() + "€"
+      return "add " + this.getAddWorkerPrice()
     }
   }
 

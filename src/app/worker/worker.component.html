@@ -9,7 +9,7 @@
         <p-table [value]="workers" [scrollable]="true" scrollHeight="300px" [tableStyle]="{ 'max-height': '400px' }">
             <ng-template pTemplate="caption">
                 <div class="headerContainer">
-                    {{workers.length}}x Worker ({{totalMoneyPerTick}}€/{{moneyInterval}}ms)
+                    {{workers.length}}x Worker ({{totalMoneyPerTick}}/{{moneyInterval}}ms)
                     ({{workers.length}}/{{maxWorker}})
                     <p-button label={{getWorkerBuyLabel()}} [outlined]="true" size="small" (onClick)="addWorker()"
                         [disabled]="!canAffortBuyWorker()"></p-button>
@@ -28,8 +28,8 @@
                 <tr>
                     <td>{{ worker.name }}</td>
                     <td>{{worker.level}}</td>
-                    <td>{{getWorkerTickValue(worker.level)}}€/Tick</td>
-                    <td><p-button label="{{getPriceUpgrade(worker.level)}}€" [outlined]="true" size="small"
+                    <td>{{getWorkerTickValue(worker.level)}}/Tick</td>
+                    <td><p-button label="{{getPriceUpgrade(worker.level)}}" [outlined]="true" size="small"
                             [disabled]="!canAffort(worker.level)" (onClick)="upgradeWorker(worker)"></p-button></td>
 
                 </tr>

@@ -12,7 +12,7 @@ export class StatusbarComponent implements OnInit {
   counterValue: number = 0;
   workerEarn: number = 1;
 
-  moneyDisplay: string = "000000000";
+  moneyDisplay: string = "";
   private subscription: Subscription;
 
   constructor(private counterService: CounterService) {
@@ -30,8 +30,9 @@ export class StatusbarComponent implements OnInit {
   }
 
   updateMoneyDisplay() {
-    this.moneyDisplay = this.counterValue.toString().padStart(9, '0');
+    this.moneyDisplay = this.counterValue.toLocaleString('de-DE'); // Verwendet das deutsche Format
   }
+  
 }
 
 

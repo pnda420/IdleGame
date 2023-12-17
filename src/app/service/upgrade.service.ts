@@ -9,14 +9,20 @@ export class UpgradeService {
     private intervalSubject = new Subject<number>();
     private buttonValueSubject = new Subject<number>();
     private maxWorkerSubject = new Subject<number>();
+    private unlockBankSubject = new Subject<boolean>();
+    private unlockWorkersSubject = new Subject<boolean>();
 
     interval$ = this.intervalSubject.asObservable();
     buttonValue$ = this.buttonValueSubject.asObservable();
     maxWorker$ = this.maxWorkerSubject.asObservable();
+    unlockBank$ = this.unlockBankSubject.asObservable();
+    unlockWorkers$ = this.unlockWorkersSubject.asObservable();
 
     private interval = 1000;
     private buttonValue = 0;
     private maxWorker = 5;
+    private unlockBank = false;
+    private unlockWorkers = false;
 
     setInterval(ammount: number) {
         this.interval = ammount;
@@ -32,6 +38,16 @@ export class UpgradeService {
         this.maxWorker = value;
         this.maxWorkerSubject.next(this.maxWorker);
     }
+
+    setUnlockBank(value: boolean){
+        this.unlockBank = value;
+        this.unlockBankSubject.next(this.unlockBank);
+    }
+    setUnlockWorkers(value: boolean){
+        this.unlockWorkers = value;
+        this.unlockWorkersSubject.next(this.unlockWorkers);
+    }
+
 
 
 

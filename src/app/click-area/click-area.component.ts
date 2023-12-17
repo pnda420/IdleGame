@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CounterService } from '../service/counter.service';
 import { UpgradeService } from '../service/upgrade.service';
 
@@ -7,7 +7,7 @@ import { UpgradeService } from '../service/upgrade.service';
   templateUrl: './click-area.component.html',
   styleUrls: ['./click-area.component.css']
 })
-export class ClickAreaComponent {
+export class ClickAreaComponent implements OnInit {
   subscription: any;
 
   constructor(private counterService: CounterService, private upgradeService: UpgradeService) { 
@@ -15,6 +15,9 @@ export class ClickAreaComponent {
       this.clickAmmount = value;
     }
     );
+  }
+  ngOnInit(): void {
+    this.counterService.increaseCounter(0);
   }
 
   clickAmmount: number;

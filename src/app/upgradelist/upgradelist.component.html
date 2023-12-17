@@ -1,22 +1,32 @@
 <div>
     <p-card class="card-container">
-        <div class="text" >
+        <div class="text">
             <img src="../../assets/images/upgrade.png" alt="Bildbeschreibung" style="width: 40px; margin-right: 5px;">
             Upgrades
         </div>
         <div class="card-entry">
-            Work button force: <strong>{{buttonValue}}€</strong>
-            <p-button icon="pi pi-bolt" severity="success" label="{{buttonPrice}}€" (onClick)="buyButton()"
+            Work button force: <strong>{{buttonValue}}</strong>
+            <p-button icon="pi pi-bolt" severity="success" label="{{buttonPrice}}" (onClick)="buyButton()"
                 [disabled]="!canAffort('button')"></p-button>
         </div>
         <div class="card-entry">
-            Current interval: <strong>{{intervalValue}}ms</strong>
-            <p-button icon="pi pi-stopwatch" severity="warning" label="{{intervalPrice}}€" (onClick)="buyInterval()"
-                [disabled]="!canAffort('interval')"></p-button>
+            Unlock Bank
+            <p-button icon="pi pi-building" severity="info" label="100.000" (onClick)="buyUnlockBank()"
+                [disabled]="!canAffort('unlockBank')"></p-button>
         </div>
         <div class="card-entry">
+            Unlock Workers
+            <p-button icon="pi pi-user" severity="danger" label="300.000" (onClick)="buyUnlockWorker()"
+                [disabled]="!canAffort('unlockWorker')"></p-button>
+        </div>
+        <div class="card-entry"  *ngIf="unlockWorker">
+            Work speed: <strong>{{intervalValue}}ms</strong>
+            <p-button icon="pi pi-stopwatch" severity="warning" label="{{intervalPrice}}" (onClick)="buyInterval()"
+                [disabled]="!canAffort('interval')"></p-button>
+        </div>
+        <div class="card-entry"  *ngIf="unlockBank">
             Max Workers: <strong>{{maxWorkers}}</strong>
-            <p-button icon="pi pi-user" severity="help" label="{{buyMaxWorkerPrice}}€" (onClick)="buyMaxWorker()"
+            <p-button icon="pi pi-users" severity="help" label="{{buyMaxWorkerPrice}}" (onClick)="buyMaxWorker()"
                 [disabled]="!canAffort('maxWorker')"></p-button>
         </div>
     </p-card>

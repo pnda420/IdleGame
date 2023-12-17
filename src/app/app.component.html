@@ -9,8 +9,8 @@
 </div>
 
 <div class="tableContainer" style="justify-content:space-evenly; width: 100%;" *ngIf="hasStarted">
-    <app-worker></app-worker>
-    <app-bank>  </app-bank>
+    <app-worker *ngIf="workerUnlocked"></app-worker>
+    <app-bank *ngIf="bankUnlocked">  </app-bank>
     <app-upgradelist></app-upgradelist>
     <app-money-goals></app-money-goals>
 </div>
