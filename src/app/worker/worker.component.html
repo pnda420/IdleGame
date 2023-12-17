@@ -1,9 +1,9 @@
 <div class="tablecontainer">
-    <p-table [value]="workers" [scrollable]="true" scrollHeight="400px"[tableStyle]="{ 'height': '400px' }" >
+    <p-table [value]="workers" [scrollable]="true" scrollHeight="400px"[tableStyle]="{ 'max-height': '400px' }" >
             <ng-template pTemplate="caption" >
         <div class="headerContainer">
             <img src="../../assets/images/worker.png" style="width: 40px;">
-            Worker ({{totalMoneyPerTick}}€/{{moneyInterval}}ms) ({{workers.length}}/5)
+            Worker ({{totalMoneyPerTick}}€/{{moneyInterval}}ms) ({{workers.length}}/{{maxWorker}})
             <p-button label={{getWorkerBuyLabel()}} [outlined]="true" size="small" (onClick)="addWorker()" [disabled]="!canAffortBuyWorker()"></p-button>
         </div>
     </ng-template>

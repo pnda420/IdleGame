@@ -16,8 +16,8 @@
         </div>
         <div class="card-entry">
             Max Workers: <strong>{{maxWorkers}}</strong>
-            <p-button icon="pi pi-user" severity="help" label="{{buyMaxWorkerPrice}}€" (onClick)="buyInterval()"
-                [disabled]="!canAffort('interval')"></p-button>
+            <p-button icon="pi pi-user" severity="help" label="{{buyMaxWorkerPrice}}€" (onClick)="buyMaxWorker()"
+                [disabled]="!canAffort('maxWorker')"></p-button>
         </div>
     </p-card>
 </div>

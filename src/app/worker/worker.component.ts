@@ -34,6 +34,8 @@ export class WorkerComponent implements OnInit {
     );
     this.subscription2 = this.updateService.maxWorker$.subscribe((value) => {
       this.maxWorker = value
+      console.log("new WORKER");
+      
     }
     );
     

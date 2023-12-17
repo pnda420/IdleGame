@@ -10,13 +10,13 @@ import { CounterService } from '../service/counter.service';
 export class UpgradelistComponent implements OnInit {
 
   intervalValue: number = 1000;
-  buttonValue: number = 10000;
+  buttonValue: number = 50;
 
   buttonPrice: number = 100;
   intervalPrice: number = 100;
   subscription: any;
 
-  maxWorkers: number = 5;
+  maxWorkers: number = 3;
   buyMaxWorkerPrice: number = 100;
 
   currentMoney: number;
@@ -36,7 +36,7 @@ export class UpgradelistComponent implements OnInit {
 
   buyButton(): void {
     if (this.canAffort("button")) {
-      this.buttonValue += Math.round(this.buttonValue * 1.5);
+      this.buttonValue += 100
       this.upgradeService.setButtonValue(this.buttonValue);
       this.counterService.decreaseCounter(this.buttonPrice);
       this.buttonPrice = Math.round(this.buttonPrice * 2);
@@ -52,6 +52,15 @@ export class UpgradelistComponent implements OnInit {
     }
   }
 
+  buyMaxWorker(): void {
+    if (this.canAffort("maxWorker")) {
+      this.maxWorkers += 1;
+      this.upgradeService.setMaxWorker(this.maxWorkers);
+      this.counterService.decreaseCounter(this.buyMaxWorkerPrice);
+      this.buyMaxWorkerPrice = Math.round(this.buyMaxWorkerPrice * 5);
+    }
+  }
+
   canAffort(type: string): boolean {
     let canAffort;
 
@@ -62,6 +71,11 @@ export class UpgradelistComponent implements OnInit {
     }
     else if (type == "interval") {
       if (this.currentMoney >= this.intervalPrice && this.intervalValue > 100) {
+        canAffort = true
+      }
+    }
+    else if (type == "maxWorker") {
+      if (this.currentMoney >= this.buyMaxWorkerPrice) {
         canAffort = true
       }
     }
