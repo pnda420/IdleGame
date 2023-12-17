@@ -4,18 +4,18 @@
     <app-statusbar></app-statusbar>
 </div>
 
-<div class="tableContainer">
+<div class="tableContainer"  *ngIf="hasStarted">
     <app-money-progress></app-money-progress>
 </div>
 
-<div class="tableContainer" style="justify-content:space-evenly; width: 100%;">
+<div class="tableContainer" style="justify-content:space-evenly; width: 100%;" *ngIf="hasStarted">
     <app-worker></app-worker>
-    <app-upgradelist></app-upgradelist>
     <app-bank>  </app-bank>
+    <app-upgradelist></app-upgradelist>
     <app-money-goals></app-money-goals>
 </div>
 
-<div class="tableContainer">
+<div class="tableContainer"  *ngIf="hasStarted">
     <app-click-area></app-click-area>
 </div>
 

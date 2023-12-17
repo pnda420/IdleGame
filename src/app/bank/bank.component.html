@@ -12,15 +12,22 @@
             <div  [style.color]="coursePositive ? '#22C55E' : '#EF4444'">
                 {{ course }}%
             </div>
+            
             <i *ngIf="coursePositive" class="pi pi-angle-double-up" style="color: #22C55E;"></i>
             <i *ngIf="!coursePositive" class="pi pi-angle-double-down" style="color: #EF4444;"></i>
+        </div>
+
+        <div class="progressbar-container">
+            <div class="progressbar" [style.width.%]="remainingTimetoCourseChange">
+                <span> </span>
+            </div>
         </div>
         <div class="border">
             <div class="moneyText" style="font-size: 30px; margin-top: 10px;">{{depositMoney}}</div>
             <div class="button-container" style="margin-top: 10px;">
-                <p-button label="-" severity="danger" (click)="subMoney()"></p-button>
+                <p-button label="-" severity="danger" (mousedown)="startDecreasingMoney()" (mouseup)="stopChangingMoney()" (mouseleave)="stopChangingMoney()"></p-button>
                 <p-button label="Deposit" (click)="deposit()" [disabled]="!canAffortDeposit()"></p-button>             
-                <p-button label="+" severity="success" (click)="addMoney()"></p-button>
+                <p-button label="+" severity="success" (mousedown)="startIncreasingMoney()" (mouseup)="stopChangingMoney()" (mouseleave)="stopChangingMoney()"></p-button>
             </div>
             <div style="display: flex; justify-content: center; margin-top: 10px; margin-bottom: 10px;">
                 <p-button label="Withdraw" (click)="withdraw()"></p-button>

@@ -8,19 +8,23 @@ import { CounterService } from '../service/counter.service';
 })
 export class MoneyProgressComponent {
   subscription: any;
-  counterValue: number;
+  counterValue1m: number;
+  counterValue100m: number;
 
   constructor(private counterService: CounterService) {
     this.subscription = this.counterService.counter$.subscribe((value) => {
-      this.berechneProzentsatz(value)
+      this.berechneProzentsatz1m(value)
+      this.berechneProzentsatz100m(value)
     }
     );
   }
 
-  berechneProzentsatz(wert: number) {
+  berechneProzentsatz1m(wert: number) {
+    let value: number = parseFloat((wert / 1000000 * 100).toFixed(2));
+    this.counterValue1m = value;
+  }
+  berechneProzentsatz100m(wert: number) {
     let value: number = parseFloat((wert / 100000000 * 100).toFixed(2));
-    this.counterValue = value;
-}
-
-  
+    this.counterValue100m = value;
+  }
 }

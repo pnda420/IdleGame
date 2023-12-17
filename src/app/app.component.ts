@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TimeService } from './service/time.service';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +8,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'IdleGame';
+  subscription: any;
+  currentTime: any;
 
-  visible: boolean = false;
+  hasStarted: boolean = false;
 
-  showDialog() {
-      this.visible = true;
+  constructor(private timeService: TimeService) {
+    this.subscription = this.timeService.time$.subscribe((value) => {
+      this.currentTime = value;
+      if (value != "00:00:00") {
+        this.hasStarted = true;
+      }
+    })
   }
 }

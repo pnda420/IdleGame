@@ -8,7 +8,7 @@ export class TimeService {
   private timeSubject = new Subject<string>();
   time$ = this.timeSubject.asObservable();
 
-  private currentTime: string = "";
+  private currentTime: string = "--:--:--";
 
   setCurrentTime(time: string) {
     this.currentTime = time;

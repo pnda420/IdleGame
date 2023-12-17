@@ -1,3 +1,5 @@
+@import '../shared/cards.css';
+
 .tablecontainer {
     width: 500px;
 }
@@ -8,3 +10,13 @@
     align-items: center !important;
     height: 20px !important;
 }
+
+.text {
+    justify-content: left;
+    display: flex;
+    align-items: center;
+    font-family: 'basic', sans-serif;
+    font-size: 20px;
+    color: #000;
+}
+

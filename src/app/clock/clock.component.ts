@@ -19,7 +19,6 @@ export class ClockComponent implements OnInit {
   constructor(private TimeService: TimeService) {}
 
   ngOnInit(): void {
-    this.startTimer()
   }
   
   startTimer(): void {
